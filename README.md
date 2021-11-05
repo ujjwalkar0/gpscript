@@ -1,6 +1,10 @@
 ### Install General purpose scripts ([Check This](https://github.com/ujjwalkar0/General-Purpose-Scripts)) using gpscript command
 
-First of all install gpscript
+First of all install gpscript. Write following command(s)
+```
+pip install gpscript
+```
+or,
 ```
 git clone https://github.com/ujjwalkar0/gpscript
 
