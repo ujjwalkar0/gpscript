@@ -7,6 +7,15 @@ print("Welcome to gpscript...")
 
 a = requests.get('https://raw.githubusercontent.com/ujjwalkar0/General-Purpose-Scripts/main/packages.json')
 
+def setup():
+    base_dir = os.environ['VIRTUAL_ENV'] 
+    path = os.path.join(base_dir,'bin')
+    f = open(f"{path}/gpscript","w")
+    f.write('python -c "from gpscript.gpscript import *; $1()" $2')
+    f.close()
+    os.system(f'chmod +x {path}/gpscript')
+
+
 def lists():
     for i in a.json():
         print(i)

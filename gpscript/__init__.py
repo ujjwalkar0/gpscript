@@ -1,2 +1,3 @@
-from script.script import install
-from script.script import lists
+from gpscript.gpscript import install
+from gpscript.gpscript import lists
+

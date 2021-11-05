@@ -13,6 +13,14 @@ cd gpscript
 python setup.py install
 
 ```
+
+If `gpscript` command not work, then open `python` interpreter, and write following command
+
+```python
+>>> import gpscript
+>>> gpscript.gpscript.setup()
+```
+
 List of all script (Only those packages are in packages.json will shown here.)
 
 ```
