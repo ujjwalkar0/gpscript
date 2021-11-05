@@ -11,6 +11,15 @@ def lists():
     for i in a.json():
         print(i)
 
+def installed():
+    print("Loading Installed Scripts...")
+    base_dir = os.environ['VIRTUAL_ENV'] 
+    path = os.path.join(base_dir,'applications')
+    j=0
+    for i in os.listdir(path):
+        j+=1
+        print(f'{j}. {i}'.lower().replace('_',''))
+
 def install():
     if 'VIRTUAL_ENV' not in os.environ:
         print( "Don't do this without virtual environment.")
@@ -53,3 +62,37 @@ def install():
     print("Installing requirements...")
     os.system(f'pip install -r {installdir}/requirements.txt')
 
+
+def path(appname):
+    base_dir = os.environ['VIRTUAL_ENV'] 
+    apppath = os.path.join(base_dir,'bin',appname)
+    appdirct = '/'
+    f = open(apppath,'r+')
+    a = f.read().split('/')
+    print(a)
+    i = 0
+    while(a[i-1] != 'applications'):
+        i+=1
+        appdirct = os.path.join(appdirct,a[i])
+
+    f.close()
+    return apppath,appdirct
+
+def update():
+    arg = sys.argv[1]
+    apppath,appdir = path(arg)
+    os.system(f'svn update {appdir}')
+
+def remove():
+    arg = sys.argv[1]
+    apppath,appdir = path(arg)
+
+    if not os.path.exists(apppath):
+        print(apppath,"Program Not exist")
+        return
+    
+    if not os.path.exists(appdir):
+        print(appdir,"Program Directory Not exist")
+        return
+    
+    os.system(f'rm {apppath} && rm -rf {appdir}')
