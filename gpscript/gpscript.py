@@ -5,7 +5,7 @@ import sys
 print("Welcome to gpscript...")
 
 
-a = requests.get('https://raw.githubusercontent.com/ujjwalkar0/General-Purpose-Scripts/main/packages.json')
+a = requests.get('https://raw.githubusercontent.com/GDSC-RCCIIT/General-Purpose-Scripts/main/packages.json')
 
 def setup():
     base_dir = os.environ['VIRTUAL_ENV'] 
@@ -58,7 +58,7 @@ def install():
         print("App already installed")
         return   
     print('Connecting to server...')
-    url = 'https://github.com/ujjwalkar0/General-Purpose-Scripts/trunk/scripts/'+arg.replace(' ','%20')
+    url = 'https://github.com/GDSC-RCCIIT/General-Purpose-Scripts/trunk/scripts/'+arg.replace(' ','%20')
     
     print('Connected...')
 
